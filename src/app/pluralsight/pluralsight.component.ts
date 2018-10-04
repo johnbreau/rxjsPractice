@@ -32,26 +32,25 @@ export class PluralsightComponent implements OnInit {
 
 //
 
-// let numbers = [1,3,5,7,4,2,7];
+  // let numbers = [1,3,5,7,4,2,7];
 
-//    let source = Observable.create(observer => {
+  //    let source = Observable.create(observer => {
 
-//      let index = 0;
-//      let produceValue = () => {
-//        observer.next(numbers[index++])
+  //      let index = 0;
+  //      let produceValue = () => {
+  //        observer.next(numbers[index++])
 
-//        if (index < numbers.length) {
-//          setTimeout(produceValue, 2000);
-//        } else {
-//        observer.complete();
-//        }
-//      }
-//      produceValue();
-//    }).map(n => n*2)
-//    .filter(n => n > 4);
+  //        if (index < numbers.length) {
+  //          setTimeout(produceValue, 2000);
+  //        } else {
+  //        observer.complete();
+  //        }
+  //      }
+  //      produceValue();
+  //    }).map(n => n*2)
+  //    .filter(n => n > 4);
 
-// //
-
+  // Moving a cirle with the cursor when x value is > 100...
     const circle = document.getElementById('circle');
     const source = Observable.fromEvent(document, 'mousemove')
     .map(( e: MouseEvent) => {
@@ -63,18 +62,17 @@ export class PluralsightComponent implements OnInit {
     .filter(value => value.x > 100);
 
     function onNextMove(value) {
-      console.log(circle);
-      console.log(value);
+      // console.log(value);
       circle.style.left = value.x + 'px';
       circle.style.top = value.y + 'px';
     }
 
     source.subscribe(
-      // value => console.log('x', value));
     onNextMove,
     error => console.log('error', error),
     () => console.log('complete')
     );
+  //
   }
 
 }
